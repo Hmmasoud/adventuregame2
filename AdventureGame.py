@@ -2,7 +2,7 @@ import time  # Import time to sleep for some time
 import random  # Import random to select objects randomly
 # Identify lists of objects in the game
 
-Places = ['(1) Fields of Elysium', '(2) Torment of Hades', '(3) Greece']
+Places = ['Fields of Elysium (1)', 'Torment of Hades (2)', 'Greece (3)']
 Weapons = ['Sword', 'Bow', 'Dagger', 'Hammer', 'Stinger']
 Elysium_Opponents = ['Ancient Soldiers', 'Kolossi', 'Hermes', 'Minotaur']
 Hades_Opponents = ['Cerberus', 'Tartaros Rifts', 'Hades']
@@ -40,14 +40,14 @@ for place in Places:
     print(place)
 Option = ''
 while Option not in Places:
-    msg = '\nUse Fullname/1st letter/number of option.\n'
+    msg = '\nUse 1st letter/number of option.\n'
     Option = input(msg)
-    if Option.lower() == '1 Fields of Elysium'.lower() or Option.lower() == 'F'.lower() or Option == '1':
-        Option = '(1) Fields of Elysium'
-    elif Option.lower() == '2 Torment of Hades'.lower() or Option.lower() == 'T'.lower() or Option == '2':
-        Option = '(2) Torment of Hades'
-    elif Option.lower() == '3 Greece'.lower() or Option.lower() == 'G'.lower() or Option == '3':
-        Option = '(3) Greece'
+    if Option.lower() == 'F'.lower() or Option == '1':
+        Option = 'Fields of Elysium (1)'
+    elif Option.lower() == 'T'.lower() or Option == '2':
+        Option = 'Torment of Hades (2)'
+    elif Option.lower() == 'G'.lower() or Option == '3':
+        Option = 'Greece (3)'
     else:
         Option = ''
 
@@ -71,11 +71,11 @@ else:
 
 # Random opponents based on the place
 PrintSleep('In front of you is ', 0)
-if Option == '(1) Fields of Elysium':
+if Option == 'Fields of Elysium (1)':
     PrintSleep(random.choice(Elysium_Opponents), 0)
-if Option == '(2) Torment of Hades':
+if Option == 'Torment of Hades (2)':
     PrintSleep(random.choice(Hades_Opponents), 0)
-if Option == '(3) Greece':
+if Option == 'Greece (3)':
     PrintSleep(random.choice(Greece), 0)
 
 
