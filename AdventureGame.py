@@ -2,14 +2,14 @@ import time  # Import time to sleep for some time
 import random  # Import random to select objects randomly
 # Identify lists of objects in the game
 
-Places = ['Fields of Elysium', 'Torment of Hades', 'Greece']
+Places = ['(1) Fields of Elysium', '(2) Torment of Hades', '(3) Greece']
 Weapons = ['Sword', 'Bow', 'Dagger', 'Hammer', 'Stinger']
 Elysium_Opponents = ['Ancient Soldiers', 'Kolossi', 'Hermes', 'Minotaur']
 Hades_Opponents = ['Cerberus', 'Tartaros Rifts', 'Hades']
 Greece = ['Bandit', 'Soldier', 'Bear']
 
-Game_Result = ['Succeed', 'Lose']
-Choice = ['Yes', 'No']
+Game_Ending = ['Succeed', 'Lose']
+Option = ['Yes', 'No']
 # End
 
 
@@ -30,61 +30,61 @@ PrintSleep('But you should choose wisely to succeed in your missions.', 1)
 
 
 # Get the player's name
-PrintSleep('Please Enter Your Name to start the game:', 1)
+PrintSleep('Enter Your Name to start your adventure:', 1)
 name = input('')
 
 
 # Choosing the places
-print('\nHello ' + name + '!  \nPlease choose which place you want to go? \n')
+print('\nHello ' + name + '!  \nChoose your destiny? \n')
 for place in Places:
     print(place)
-Choice = ''
-while Choice not in Places:
-    msg = '\nChoose fullname/1st letter or sequence of choice.\n'
-    Choice = input(msg)
-    if Choice.lower() == 'Fields of Elysium'.lower() or Choice.lower() == 'F'.lower() or Choice == '1':
-        Choice = 'Fields of Elysium'
-    elif Choice.lower() == 'Torment of Hades'.lower() or Choice.lower() == 'T'.lower() or Choice == '2':
-        Choice = 'Torment of Hades'
-    elif Choice.lower() == 'Greece'.lower() or Choice.lower() == 'G'.lower() or Choice == '3':
-        Choice = 'Greece'
+Option = ''
+while Option not in Places:
+    msg = '\nUse Fullname/1st letter/number of option.\n'
+    Option = input(msg)
+    if Option.lower() == '1 Fields of Elysium'.lower() or Option.lower() == 'F'.lower() or Option == '1':
+        Option = '(1) Fields of Elysium'
+    elif Option.lower() == '2 Torment of Hades'.lower() or Option.lower() == 'T'.lower() or Option == '2':
+        Option = '(2) Torment of Hades'
+    elif Option.lower() == '3 Greece'.lower() or Option.lower() == 'G'.lower() or Option == '3':
+        Option = '(3) Greece'
     else:
-        Choice = ''
+        Option = ''
 
 time.sleep(2)
 
 
 # Random weapons choices
-weaponchosen = random.choice(Weapons)
-PrintSleep('You have ' + weaponchosen + ' as your weapon.', 1)
+weaponchoice = random.choice(Weapons)
+PrintSleep('You have ' + weaponchoice + ' as your weapon.', 1)
 
 
 # Choice to change the weapon
 msg = ('Would you like to change your weapon?\nYou can do this once.\n')
 changerequest = input(msg)
 if changerequest.lower() == 'Yes'.lower():
-    weaponchosen = random.choice(Weapons)
-    PrintSleep('Youre in ' + Choice + ' & you have ' + weaponchosen + '.', 1)
+    weaponchoice = random.choice(Weapons)
+    PrintSleep('You\'re in ' + Option + ' & you have ' + weaponchoice + '.', 1)
 else:
     changerequest = ''
 
 
 # Random opponents based on the place
 PrintSleep('In front of you is ', 0)
-if Choice == 'Fields of Elysium':
+if Option == '(1) Fields of Elysium':
     PrintSleep(random.choice(Elysium_Opponents), 0)
-if Choice == 'Torment of Hades':
+if Option == '(2) Torment of Hades':
     PrintSleep(random.choice(Hades_Opponents), 0)
-if Choice == 'Greece':
+if Option == '(3) Greece':
     PrintSleep(random.choice(Greece), 0)
 
 
 # Stating the opponent type
-PrintSleep('Use your weapon to kill your opponent!', 5)
+PrintSleep('Use your '+ weaponchoice + ' to kill your opponent!', 5)
 
 
 # Printing the results
-PrintSleep('You ' + random.choice(Game_Result) + '!', 3)
+PrintSleep('You ' + random.choice(Game_Ending) + '!', 3)
 
 
 # Exiting the game
