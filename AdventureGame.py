@@ -10,11 +10,11 @@ Game_Ending = ['Succeed', 'Lose']
 # End Configuration
 
 
-# defining a function to clear the space for invalide entries
+# 1 defining a function to clear the space for invalide entries 
 def cls():
     print('\n'*100)
 
-
+# 2 defining function to start the game
 def start_game():
     start_place_options = (Places)
     Option = ''
@@ -34,13 +34,20 @@ def start_game():
             Option = ''
             cls()
 
-
+# 3 defining function t use as print and put time.sleep together
 def PrintSleep(msg, seconds):
     print(msg + '\n')
     time.sleep(seconds)
 
+# 4 defning function to change the weapean if needed
+def ChangeYourWeapon():
+    newrequest =input('Do you want to change your current weapon?\n')
+    if newrequest == 'yes':
+        newweapon = random.choice(Weapons)
+        print('You now have a ' + newweapon)
 
-# Game Will Start
+
+# Game Will Start from here
 RetryGame = 'Yes'.lower()
 while RetryGame == 'Yes'.lower():
     # Get the player's name
@@ -49,19 +56,13 @@ while RetryGame == 'Yes'.lower():
     start_game()
     time.sleep(2)
 
-    print('Your weapon is ')
+
     weapon = random.choice(Weapons)
-    print(weapon)
+    print('Your weapon is ' + weapon + '\n')
 
 
-# Choice to change the weapon
-    msg = ('Would you like to change your weapon?\nYou can do this once.\n')
-    changerequest = input(msg)
-    if changerequest.lower() == 'Yes'.lower():
-        weaponchoice = random.choice(Weapons)
-        PrintSleep('Your new weapon is ' + weaponchoice + '.', 1)
-    else:
-        changerequest = ''
+# Choice to change the weapon if needed
+    ChangeYourWeapon()
 
 # Random opponents based on the place
     PrintSleep('In front of you is ' + random.choice(Opponents), 0)
